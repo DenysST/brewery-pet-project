@@ -8,7 +8,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ../../scripts/mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: on-failure
 
   artemis:
@@ -28,38 +28,16 @@ services:
       - "9411:9411"
     restart: on-failure
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
-    ports:
-      - "9200:9200"
-    environment:
-      discovery.type: single-node
-
-  kibana:
-    image: docker.elastic.co/kibana/kibana:7.7.0
-    ports:
-      - "5601:5601"
-    restart: on-failure
-
-  filebeat:
-    image: docker.elastic.co/beats/filebeat:7.7.0
-    volumes:
-        - ./filebeat/filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:ro
-        - /var/lib/docker/containers:/var/lib/docker/containers:ro
-        - /var/run/docker.sock:/var/run/docker.sock:ro
-    user: root
-    restart: unless-stopped
-
   eureka:
-    build: ../../../../../my-eureka
+    build: eureka
     ports:
-      - "8761:8761"
+      - "8761:8080"
     restart: on-failure
 
   config-server:
-    build: ../../../../../my-config-server
+    build: config-server
     ports:
-      - "8888:8888"
+      - "8888:8080"
     depends_on:
       - eureka
     environment:
@@ -67,9 +45,9 @@ services:
     restart: on-failure
 
   inventory-service:
-    build: ../../../../../my-inventory-service
+    build: inventory-service
     ports:
-      - "8082:8082"
+      - "8082:8080"
     depends_on:
       - eureka
       - config-server
@@ -83,15 +61,12 @@ services:
       SPRING_ARTEMIS_HOST: artemis
       DATABASE_HOST: mysql
     restart: on-failure
-    labels:
-      collect_logs_with_filebeat: "true"
-      decode_log_event_to_json_object: "true"
 
 
   order-service:
-    build: ../../../../../my-order-service
+    build: order-service
     ports:
-      - "8081:8081"
+      - "8081:8080"
     depends_on:
       - eureka
       - artemis
@@ -105,12 +80,9 @@ services:
       SPRING_ARTEMIS_HOST: artemis
       DATABASE_HOST: mysql
     restart: on-failure
-    labels:
-      collect_logs_with_filebeat: "true"
-      decode_log_event_to_json_object: "true"
 
   beer-service:
-    build: ../../../../../my-beer-service
+    build: beer-service
     ports:
       - "8080:8080"
     depends_on:
@@ -126,14 +98,11 @@ services:
       SPRING_ARTEMIS_HOST: artemis
       DATABASE_HOST: mysql
     restart: on-failure
-    labels:
-      collect_logs_with_filebeat: "true"
-      decode_log_event_to_json_object: "true"
 
   api-gateway:
-    build: ../../../../../my-gateway
+    build: gateway
     ports:
-      - "9090:9090"
+      - "9090:8080"
     depends_on:
       - eureka
       - artemis
@@ -146,6 +115,3 @@ services:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
       SPRING_PROFILES_ACTIVE: local-discovery
     restart: on-failure
-    labels:
-      collect_logs_with_filebeat: "true"
-      decode_log_event_to_json_object: "true"
