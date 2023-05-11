@@ -1,16 +1,5 @@
 version: '3.8'
 services:
-  mysql:
-    image: mysql:latest
-    container_name: mysql-brewery
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
-    restart: on-failure
-
   artemis:
     image: quay.io/artemiscloud/activemq-artemis-broker
     ports:
@@ -26,12 +15,30 @@ services:
     image: openzipkin/zipkin
     ports:
       - "9411:9411"
+    depends_on:
+      - artemis
+    restart: on-failure
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql-brewery
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    depends_on:
+      - artemis
+    volumes:
+      - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: on-failure
 
   eureka:
     build: eureka
     ports:
       - "8761:8080"
+    depends_on:
+      - zipkin
+      - artemis
     restart: on-failure
 
   config-server:
@@ -40,6 +47,8 @@ services:
       - "8888:8080"
     depends_on:
       - eureka
+      - zipkin
+      - artemis
     environment:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
     restart: on-failure
@@ -53,25 +62,7 @@ services:
       - config-server
       - mysql
       - artemis
-    environment:
-      eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
-      spring.cloud.config.uri: http://config-server:8888
-      SPRING_PROFILES_ACTIVE: localmysql,local-discovery
-      SPRING_ZIPKIN_BASEURL: http://zipkin
-      SPRING_ARTEMIS_HOST: artemis
-      DATABASE_HOST: mysql
-    restart: on-failure
-
-
-  order-service:
-    build: order-service
-    ports:
-      - "8081:8080"
-    depends_on:
-      - eureka
-      - artemis
-      - config-server
-      - mysql
+      - zipkin
     environment:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
       spring.cloud.config.uri: http://config-server:8888
@@ -90,6 +81,28 @@ services:
       - artemis
       - config-server
       - mysql
+      - zipkin
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
+      spring.cloud.config.uri: http://config-server:8888
+      SPRING_PROFILES_ACTIVE: localmysql,local-discovery
+      SPRING_ZIPKIN_BASEURL: http://zipkin
+      SPRING_ARTEMIS_HOST: artemis
+      DATABASE_HOST: mysql
+    restart: on-failure
+
+  order-service:
+    build: order-service
+    ports:
+      - "8081:8080"
+    depends_on:
+      - eureka
+      - artemis
+      - config-server
+      - mysql
+      - zipkin
+      - beer-service
+      - inventory-service
     environment:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
       spring.cloud.config.uri: http://config-server:8888
@@ -111,6 +124,7 @@ services:
       - beer-service
       - order-service
       - inventory-service
+      - zipkin
     environment:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
       SPRING_PROFILES_ACTIVE: local-discovery

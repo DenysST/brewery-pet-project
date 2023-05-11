@@ -4,27 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2a32c31-695b-47f5-a44c-4920e970dd91" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/beer-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql-init.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/beer/BeerServiceFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/beer/BeerServiceFeignClient.java" afterDir="false" />
+    <list default="true" id="d2a32c31-695b-47f5-a44c-4920e970dd91" name="Changes" comment="added docker">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beer-service/src/main/docker/elastik-logs/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/beer-service/src/main/docker/elastik-logs/filebeat/filebeat.docker.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/beer-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/beer-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/beer/BeerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/beer/BeerServiceRestTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/test/java/brewery/order/service/services/BeerOrderManagerImplIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/test/java/brewery/order/service/services/BeerOrderManagerImplIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +141,7 @@
       <option name="presentableId" value="Default" />
       <updated>1683710368800</updated>
       <workItem from="1683710369869" duration="9171000" />
-      <workItem from="1683794097076" duration="13291000" />
+      <workItem from="1683794097076" duration="15034000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683794771818</created>
@@ -167,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683794771818</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added docker">
+      <created>1683822634029</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683822634029</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +176,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="added docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="added docker" />
   </component>
 </project>
