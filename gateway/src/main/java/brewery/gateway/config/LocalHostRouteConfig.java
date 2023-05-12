@@ -27,8 +27,4 @@ public class LocalHostRouteConfig {
                 .build();
     }
 
-    @Bean
-    public ServerCodecConfigurer serverCodecConfigurer() {
-        return ServerCodecConfigurer.create();
-    }
 }

@@ -27,9 +27,4 @@ public class LoadBalancedRoutesConfig {
                 .build();
     }
 
-    @Bean
-    public ServerCodecConfigurer serverCodecConfigurer() {
-        return ServerCodecConfigurer.create();
-    }
-
 }
