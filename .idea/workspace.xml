@@ -4,10 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2a32c31-695b-47f5-a44c-4920e970dd91" name="Changes" comment="added docker">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="d2a32c31-695b-47f5-a44c-4920e970dd91" name="Changes" comment="changed compose">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beer-service/src/main/java/brewery/beerservice/domain/Beer.java" beforeDir="false" afterPath="$PROJECT_DIR$/beer-service/src/main/java/brewery/beerservice/domain/Beer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beer-service/src/main/java/brewery/beerservice/web/controller/MvcExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/beer-service/src/main/java/brewery/beerservice/web/controller/MvcExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beer-service/src/main/java/brewery/model/BeerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/beer-service/src/main/java/brewery/model/BeerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beer-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/beer-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/brewery/gateway/config/LoadBalancedRoutesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/brewery/gateway/config/LoadBalancedRoutesConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/brewery/gateway/config/LocalHostRouteConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/brewery/gateway/config/LocalHostRouteConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/java/brewery/inventory/service/domain/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/java/brewery/inventory/service/domain/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/java/brewery/inventory/service/domain/BeerInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/java/brewery/inventory/service/domain/BeerInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/java/brewery/model/BeerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/java/brewery/model/BeerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/domain/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/domain/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/domain/BeerOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/domain/BeerOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/domain/BeerOrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/domain/BeerOrderLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/domain/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/domain/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/repositories/BeerOrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/repositories/BeerOrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +73,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
     "spring.configuration.checksum": "c8db69eec4069c387cc55c2c85941f0d",
     "vue.rearranger.settings.migration": "true"
@@ -141,7 +159,7 @@
       <option name="presentableId" value="Default" />
       <updated>1683710368800</updated>
       <workItem from="1683710369869" duration="9171000" />
-      <workItem from="1683794097076" duration="15034000" />
+      <workItem from="1683794097076" duration="23660000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683794771818</created>
@@ -157,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683822634029</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changed compose">
+      <created>1683829516573</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683829516573</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +202,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="added docker" />
-    <option name="LAST_COMMIT_MESSAGE" value="added docker" />
+    <MESSAGE value="changed compose" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed compose" />
   </component>
 </project>
