@@ -4,21 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2a32c31-695b-47f5-a44c-4920e970dd91" name="Changes" comment="rollback to previous commit">
-      <change afterPath="$PROJECT_DIR$/../brewery-ui/brewery-ui.iml" afterDir="false" />
+    <list default="true" id="d2a32c31-695b-47f5-a44c-4920e970dd91" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/beer-service/src/main/java/brewery/beerservice/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway/src/main/java/brewery/gateway/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../brewery-ui/proxy.conf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../brewery-ui/src/app/beers/beers/beers.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../brewery-ui/src/app/shared/models/beerOrderLine.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../brewery-ui/src/app/shared/models/beerStyles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../brewery-ui/src/app/shared/models/customer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../brewery-ui/src/app/shared/models/pagedRespose.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beer-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/beer-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eureka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/brewery/gateway/config/LoadBalancedRoutesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/brewery/gateway/config/LoadBalancedRoutesConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/brewery/gateway/config/LocalHostRouteConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/brewery/gateway/config/LocalHostRouteConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application-local-discovery.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application-local-discovery.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/model/BeerOrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/model/BeerOrderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/TastingRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/services/TastingRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/web/controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/brewery/order/service/web/controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../brewery-ui/.vscode/extensions.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../brewery-ui/.vscode/launch.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../brewery-ui/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/beers/beers/beers.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/shared/models/beerOrder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/beers/beers/beers.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/beers/beers/beers.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/beers/beers/beers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/beers/beers/beers.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/shared/models/beer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/shared/models/beer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/app/shared/services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/app/shared/services/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brewery-ui/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../brewery-ui/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +57,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
+        <option value="Class" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../brewery-ui" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../brewery-ui/package.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -71,11 +105,21 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "c8db69eec4069c387cc55c2c85941f0d",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "1f9f5147f89089836e20d94c91203907",
+    "ts.external.directory.path": "/Users/denys.stefanko/IdeaProjects/learning/brewery-ui/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/order-service" />
@@ -83,6 +127,11 @@
       <recent name="$PROJECT_DIR$/gateway" />
       <recent name="$PROJECT_DIR$/config-server" />
       <recent name="$PROJECT_DIR$/beer-service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../brewery-ui" />
+      <recent name="$PROJECT_DIR$/../brewery-ui/src" />
+      <recent name="$PROJECT_DIR$/../brewery-ui/src/app/shared/services" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -92,7 +141,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.Angular CLI Server (brewery-ui)">
+  <component name="RunManager" selected="npm.watch">
     <configuration name="Angular Application (brewery-ui)" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
@@ -158,6 +207,21 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/../brewery-ui/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.watch" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -170,6 +234,8 @@
       <workItem from="1683710369869" duration="9171000" />
       <workItem from="1683794097076" duration="23660000" />
       <workItem from="1683893033076" duration="7389000" />
+      <workItem from="1683911734554" duration="4278000" />
+      <workItem from="1683923505805" duration="35729000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683794771818</created>
@@ -222,5 +288,9 @@
     <MESSAGE value="changed compose" />
     <MESSAGE value="rollback to previous commit" />
     <option name="LAST_COMMIT_MESSAGE" value="rollback to previous commit" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
