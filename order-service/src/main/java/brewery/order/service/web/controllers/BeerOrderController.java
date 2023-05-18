@@ -54,4 +54,10 @@ public class BeerOrderController {
     public void pickupOrder(@PathVariable("customerId") UUID customerId, @PathVariable("orderId") UUID orderId){
         beerOrderService.pickupOrder(customerId, orderId);
     }
+
+    @PutMapping("/orders/{orderId}/cancel")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void cancelOrder(@PathVariable("customerId") UUID customerId, @PathVariable("orderId") UUID orderId){
+        beerOrderService.pickupOrder(customerId, orderId);
+    }
 }

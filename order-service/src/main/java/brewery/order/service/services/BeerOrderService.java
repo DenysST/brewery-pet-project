@@ -14,4 +14,6 @@ public interface BeerOrderService {
     BeerOrderDto getOrderById(UUID customerId, UUID orderId);
 
     void pickupOrder(UUID customerId, UUID orderId);
+
+    void cancelOrder(UUID orderId);
 }

@@ -81,9 +81,14 @@ public class BeerOrderServiceImpl implements BeerOrderService {
     @Override
     public void pickupOrder(UUID customerId, UUID orderId) {
         BeerOrder beerOrder = getOrder(customerId, orderId);
-        beerOrder.setOrderStatus(BeerOrderStatusEnum.PICKED_UP);
+        beerOrder.setOrderStatus(BeerOrderStatusEnum.CANCELLED);
 
         beerOrderRepository.save(beerOrder);
+    }
+
+    @Override
+    public void cancelOrder(UUID orderId) {
+        beerOrderManager.cancelOrder(orderId);
     }
 
     private BeerOrder getOrder(UUID customerId, UUID orderId){

@@ -18,4 +18,6 @@ public interface BeerService {
     BeerDto updateBeer(UUID beerId, BeerDto beerDto);
 
     BeerDto getByUpc(String upc);
+
+    void delete(String id);
 }
