@@ -1,11 +1,11 @@
 package brewery.beerservice.services.brewing;
 
+import brewery.beerservice.web.mappers.BeerMapper;
 import brewery.model.events.BrewBeerEvent;
 import brewery.beerservice.config.JmsConfig;
 import brewery.beerservice.domain.Beer;
 import brewery.beerservice.repositories.BeerRepository;
 import brewery.beerservice.services.inventory.BeerInventoryService;
-import brewery.beerservice.web.mappers.BeerMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.core.JmsTemplate;

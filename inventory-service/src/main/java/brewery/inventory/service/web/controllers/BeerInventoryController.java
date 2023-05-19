@@ -1,8 +1,8 @@
 package brewery.inventory.service.web.controllers;
 
 import brewery.inventory.service.repositories.BeerInventoryRepository;
+import brewery.inventory.service.web.mappers.InventoryMapper;
 import brewery.model.BeerInventoryDto;
-import brewery.inventory.service.web.mappers.BeerInventoryMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class BeerInventoryController {
 
     private final BeerInventoryRepository beerInventoryRepository;
-    private final BeerInventoryMapper beerInventoryMapper;
+    private final InventoryMapper beerInventoryMapper;
 
     @GetMapping("api/v1/beer/{beerId}/inventory")
     List<BeerInventoryDto> listBeersById(@PathVariable UUID beerId){

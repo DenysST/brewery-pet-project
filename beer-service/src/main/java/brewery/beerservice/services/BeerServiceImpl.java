@@ -2,13 +2,12 @@ package brewery.beerservice.services;
 
 import brewery.beerservice.domain.Beer;
 import brewery.beerservice.repositories.BeerRepository;
+import brewery.beerservice.web.mappers.BeerMapper;
 import brewery.model.BeerDto;
 import brewery.model.BeerPagedList;
 import brewery.model.BeerStyleEnum;
 import brewery.beerservice.web.controller.NotFoundException;
-import brewery.beerservice.web.mappers.BeerMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,9 @@
 package brewery.order.service.services;
 
 import brewery.order.service.repositories.CustomerRepository;
-import brewery.order.service.web.mappers.CustomerMapper;
 import brewery.model.CustomerPagedList;
 import brewery.order.service.domain.Customer;
+import brewery.order.service.web.mappers.CustomerMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
