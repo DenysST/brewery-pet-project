@@ -28,7 +28,7 @@ public class Customer extends BaseEntity {
 
     private String customerName;
 
-    @Column(length = 36, columnDefinition = "varchar(36)")
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID apiKey;
 
     @OneToMany(mappedBy = "customer")

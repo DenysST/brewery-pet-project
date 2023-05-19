@@ -27,12 +27,7 @@ public class BaseEntity {
     }
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    @Column(length = 36, columnDefinition = "varchar(36)", updatable = false, nullable = false )
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Version
@@ -45,7 +40,4 @@ public class BaseEntity {
     @UpdateTimestamp
     private Timestamp lastModifiedDate;
 
-    public boolean isNew() {
-        return this.id == null;
-    }
 }

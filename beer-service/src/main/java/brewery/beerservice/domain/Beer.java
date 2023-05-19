@@ -21,9 +21,7 @@ import java.util.UUID;
 public class Beer {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(length = 36, columnDefinition = "varchar(36)", updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Version
@@ -46,6 +44,5 @@ public class Beer {
 
     private Integer minOnHand;
     private Integer quantityToBrew;
-
 
 }
