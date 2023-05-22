@@ -4,6 +4,9 @@ import brewery.model.BeerOrderDto;
 import brewery.model.BeerOrderPagedList;
 import brewery.order.service.services.BeerOrderService;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +15,6 @@ import java.util.UUID;
 @RequestMapping("/api/v1/customers/{customerId}/")
 @RestController
 public class BeerOrderController {
-
-    private static final Integer DEFAULT_PAGE_NUMBER = 0;
-    private static final Integer DEFAULT_PAGE_SIZE = 25;
-
     private final BeerOrderService beerOrderService;
 
     public BeerOrderController(BeerOrderService beerOrderService) {
@@ -24,18 +23,9 @@ public class BeerOrderController {
 
     @GetMapping("orders")
     public BeerOrderPagedList listOrders(@PathVariable("customerId") UUID customerId,
-                                         @RequestParam(value = "pageNumber", required = false) Integer pageNumber,
-                                         @RequestParam(value = "pageSize", required = false) Integer pageSize){
-
-        if (pageNumber == null || pageNumber < 0){
-            pageNumber = DEFAULT_PAGE_NUMBER;
-        }
-
-        if (pageSize == null || pageSize < 1) {
-            pageSize = DEFAULT_PAGE_SIZE;
-        }
-
-        return beerOrderService.listOrders(customerId, PageRequest.of(pageNumber, pageSize));
+                                         @PageableDefault(size = 25, sort = "createdDate",
+                                                 direction = Sort.Direction.DESC) Pageable pageable){
+        return beerOrderService.listOrders(customerId, pageable);
     }
 
     @PostMapping("orders")
