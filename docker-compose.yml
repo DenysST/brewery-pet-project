@@ -1,15 +1,13 @@
 version: '3.8'
 services:
-  artemis:
-    image: quay.io/artemiscloud/activemq-artemis-broker
-    ports:
-      - "8161:8161"
-      - "61616:61616"
+  rabbit:
+    image: rabbitmq:3.11-management
     environment:
-      AMQ_EXTRA_ARGS: "--nio --host 0.0.0.0 --http-host 0.0.0.0 --relax-jolokia"
-      AMQ_USER: "admin"
-      AMQ_PASSWORD: "admin"
-    restart: on-failure
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 
   mysql:
     image: mysql:latest
@@ -18,8 +16,6 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - "3306:3306"
-    depends_on:
-      - artemis
     volumes:
       - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: on-failure
@@ -28,8 +24,6 @@ services:
     build: eureka
     ports:
       - "8761:8761"
-    depends_on:
-      - artemis
     restart: on-failure
 
   config-server:
@@ -38,7 +32,6 @@ services:
       - "8888:8888"
     depends_on:
       - eureka
-      - artemis
     environment:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
       eureka.instance.prefer-ip-address: true
@@ -52,14 +45,14 @@ services:
       - eureka
       - config-server
       - mysql
-      - artemis
+      - rabbit
     environment:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
       eureka.instance.prefer-ip-address: true
       spring.cloud.config.uri: http://config-server:8888
       SPRING_PROFILES_ACTIVE: localmysql,local-discovery
       SPRING_ZIPKIN_BASEURL: http://zipkin
-      SPRING_ARTEMIS_HOST: artemis
+      spring.rabbitmq.host: rabbit
       DATABASE_HOST: mysql
     restart: on-failure
 
@@ -69,7 +62,7 @@ services:
       - "8080:8080"
     depends_on:
       - eureka
-      - artemis
+      - rabbit
       - config-server
       - mysql
     environment:
@@ -78,7 +71,7 @@ services:
       spring.cloud.config.uri: http://config-server:8888
       SPRING_PROFILES_ACTIVE: localmysql,local-discovery
       SPRING_ZIPKIN_BASEURL: http://zipkin
-      SPRING_ARTEMIS_HOST: artemis
+      spring.rabbitmq.host: rabbit
       DATABASE_HOST: mysql
     restart: on-failure
 
@@ -88,7 +81,7 @@ services:
       - "8081:8081"
     depends_on:
       - eureka
-      - artemis
+      - rabbit
       - config-server
       - mysql
       - beer-service
@@ -97,9 +90,9 @@ services:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
       eureka.instance.prefer-ip-address: true
       spring.cloud.config.uri: http://config-server:8888
+      spring.rabbitmq.host: rabbit
       SPRING_PROFILES_ACTIVE: localmysql,local-discovery
       SPRING_ZIPKIN_BASEURL: http://zipkin
-      SPRING_ARTEMIS_HOST: artemis
       DATABASE_HOST: mysql
     restart: on-failure
 
@@ -109,7 +102,6 @@ services:
       - "9090:9090"
     depends_on:
       - eureka
-      - artemis
       - config-server
       - mysql
       - beer-service

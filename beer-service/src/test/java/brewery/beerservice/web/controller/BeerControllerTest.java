@@ -38,7 +38,7 @@ class BeerControllerTest {
 
         given(beerService.getById(any(), anyBoolean())).willReturn(getValidBeerDto());
 
-        mockMvc.perform(get("/api/v1/beer/" + UUID.randomUUID().toString()).accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/api/v1/beer/" + UUID.randomUUID()).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
     }
@@ -51,7 +51,7 @@ class BeerControllerTest {
 
         given(beerService.saveNewBeer(any())).willReturn(getValidBeerDto());
 
-        mockMvc.perform(post("/api/v1/beer/")
+        mockMvc.perform(post("/api/v1/beer")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(beerDtoJson))
                 .andExpect(status().isCreated());

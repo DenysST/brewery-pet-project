@@ -1,11 +1,11 @@
 package brewery.order.service.services.listeners;
 
-import brewery.order.service.config.JmsConfig;
+import brewery.order.service.config.RabbitConfig;
 import brewery.model.events.AllocateOrderResult;
 import brewery.order.service.services.BeerOrderManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.jms.annotation.JmsListener;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class BeerOrderAllocationResultListener {
     private final BeerOrderManager beerOrderManager;
 
-    @JmsListener(destination = JmsConfig.ALLOCATE_ORDER_RESPONSE_QUEUE)
+    @RabbitListener(queues = RabbitConfig.ALLOCATE_ORDER_RESPONSE_QUEUE)
     public void listen(AllocateOrderResult result){
         if(!result.getAllocationError() && !result.getPendingInventory()){
             //allocated normally

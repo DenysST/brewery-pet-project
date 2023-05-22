@@ -1,6 +1,6 @@
 package brewery.order.service.sm.actions;
 
-import brewery.order.service.config.JmsConfig;
+import brewery.order.service.config.RabbitConfig;
 import brewery.order.service.domain.BeerOrder;
 import brewery.order.service.domain.BeerOrderEventEnum;
 import brewery.order.service.domain.BeerOrderStatusEnum;
@@ -10,7 +10,7 @@ import brewery.model.events.DeallocateOrderRequest;
 import brewery.order.service.web.mappers.BeerOrderMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.jms.core.JmsTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.statemachine.StateContext;
 import org.springframework.statemachine.action.Action;
 import org.springframework.stereotype.Component;
@@ -23,7 +23,7 @@ import java.util.UUID;
 @Component
 public class DeallocateOrderAction implements Action<BeerOrderStatusEnum, BeerOrderEventEnum> {
 
-    private final JmsTemplate jmsTemplate;
+    private final RabbitTemplate rabbitTemplate;
     private final BeerOrderRepository beerOrderRepository;
     private final BeerOrderMapper beerOrderMapper;
 
@@ -33,7 +33,7 @@ public class DeallocateOrderAction implements Action<BeerOrderStatusEnum, BeerOr
         Optional<BeerOrder> beerOrderOptional = beerOrderRepository.findById(UUID.fromString(beerOrderId));
 
         beerOrderOptional.ifPresentOrElse(beerOrder -> {
-            jmsTemplate.convertAndSend(JmsConfig.DEALLOCATE_ORDER_QUEUE,
+            rabbitTemplate.convertAndSend(RabbitConfig.DEALLOCATE_ORDER_QUEUE,
                     DeallocateOrderRequest.builder()
                             .beerOrderDto(beerOrderMapper.beerOrderToDto(beerOrder))
                             .build());

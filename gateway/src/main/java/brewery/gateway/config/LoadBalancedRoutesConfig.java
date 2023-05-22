@@ -1,5 +1,6 @@
 package brewery.gateway.config;
 
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,7 @@ import org.springframework.http.codec.ServerCodecConfigurer;
 
 
 @Profile("local-discovery")
+@EnableDiscoveryClient
 @Configuration
 public class LoadBalancedRoutesConfig {
 

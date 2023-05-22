@@ -7,6 +7,7 @@ import brewery.order.service.repositories.BeerOrderRepository;
 import brewery.order.service.sm.BeerOrderStateChangeInterceptor;
 import brewery.model.BeerOrderDto;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -43,11 +44,12 @@ public class BeerOrderManagerImpl implements BeerOrderManager {
         return savedBeerOrder;
     }
 
+    @SneakyThrows
     @Transactional
     @Override
     public void processValidationResult(UUID beerOrderId, Boolean isValid) {
         log.debug("Process Validation Result for beerOrderId: " + beerOrderId + " Valid? " + isValid);
-
+        Thread.sleep(1000);
         Optional<BeerOrder> beerOrderOptional = beerOrderRepository.findById(beerOrderId);
 
         beerOrderOptional.ifPresentOrElse(beerOrder -> {

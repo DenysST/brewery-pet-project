@@ -1,12 +1,12 @@
 package brewery.inventory.service.services;
 
-import brewery.inventory.service.config.JmsConfig;
+import brewery.inventory.service.config.RabbitConfig;
 import brewery.model.events.AllocateOrderRequest;
 import brewery.model.events.AllocateOrderResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.jms.annotation.JmsListener;
-import org.springframework.jms.core.JmsTemplate;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -14,9 +14,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class AllocationListener {
     private final AllocationService allocationService;
-    private final JmsTemplate jmsTemplate;
+    private final RabbitTemplate rabbitTemplate;
 
-    @JmsListener(destination = JmsConfig.ALLOCATE_ORDER_QUEUE)
+    @RabbitListener(queues = RabbitConfig.ALLOCATE_ORDER_QUEUE)
     public void listen(AllocateOrderRequest request){
         AllocateOrderResult.AllocateOrderResultBuilder builder = AllocateOrderResult.builder();
         builder.beerOrderDto(request.getBeerOrderDto());
@@ -36,7 +36,7 @@ public class AllocationListener {
             builder.allocationError(true);
         }
 
-        jmsTemplate.convertAndSend(JmsConfig.ALLOCATE_ORDER_RESPONSE_QUEUE,
+        rabbitTemplate.convertAndSend(RabbitConfig.ALLOCATE_ORDER_RESPONSE_QUEUE,
                 builder.build());
 
     }
