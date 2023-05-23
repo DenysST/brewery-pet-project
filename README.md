@@ -8,8 +8,8 @@ This is an application that represents a basic brewery example, written for stud
 - Docker compose
 
 ## Starting up  
-- run ./mvnw clean package
-- run docker compose up
+- run `./mvnw clean package`
+- run `docker compose up`
 
 ## UI application  
 https://github.com/DenysST/brewery-ui
