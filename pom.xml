@@ -15,7 +15,7 @@
   <name>brewery-pet-project</name>
 
   <properties>
-<!--    <java.version>20</java.version>-->
+    <java.version>20</java.version>
     <spring-cloud.version>2022.0.2</spring-cloud.version>
     <org.projectlombok.version>1.18.26</org.projectlombok.version>
   </properties>
@@ -27,6 +27,7 @@
     <module>inventory-service</module>
     <module>beer-service</module>
     <module>order-service</module>
+    <module>security</module>
   </modules>
 
   <dependencies>

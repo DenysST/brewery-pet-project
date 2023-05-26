@@ -19,6 +19,7 @@ services:
       - "3306:3306"
     volumes:
       - ./mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
     restart: on-failure
 
   eureka:
@@ -52,7 +53,6 @@ services:
       eureka.instance.prefer-ip-address: true
       spring.cloud.config.uri: http://config-server:8888
       SPRING_PROFILES_ACTIVE: localmysql,local-discovery
-      SPRING_ZIPKIN_BASEURL: http://zipkin
       spring.rabbitmq.host: rabbit
       DATABASE_HOST: mysql
     restart: on-failure
@@ -66,12 +66,12 @@ services:
       - rabbit
       - config-server
       - mysql
+      - inventory-service
     environment:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
       eureka.instance.prefer-ip-address: true
       spring.cloud.config.uri: http://config-server:8888
       SPRING_PROFILES_ACTIVE: localmysql,local-discovery
-      SPRING_ZIPKIN_BASEURL: http://zipkin
       spring.rabbitmq.host: rabbit
       DATABASE_HOST: mysql
     restart: on-failure
@@ -93,7 +93,6 @@ services:
       spring.cloud.config.uri: http://config-server:8888
       spring.rabbitmq.host: rabbit
       SPRING_PROFILES_ACTIVE: localmysql,local-discovery
-      SPRING_ZIPKIN_BASEURL: http://zipkin
       DATABASE_HOST: mysql
     restart: on-failure
 
@@ -113,3 +112,6 @@ services:
       eureka.instance.prefer-ip-address: true
       SPRING_PROFILES_ACTIVE: local-discovery
     restart: on-failure
+
+volumes:
+  db_data:
