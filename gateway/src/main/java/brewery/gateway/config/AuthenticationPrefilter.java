@@ -2,6 +2,7 @@ package brewery.gateway.config;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,9 @@ public class AuthenticationPrefilter extends AbstractGatewayFilterFactory<Authen
     public static final String AUTH_HEADER = "Authorization";
 
     private final WebClient.Builder webClientBuilder;
+    @Value("${security.host}")
+    private String securityHost;
+
 
     public AuthenticationPrefilter(WebClient.Builder webClientBuilder) {
         super(Config.class);
@@ -25,10 +29,11 @@ public class AuthenticationPrefilter extends AbstractGatewayFilterFactory<Authen
     @Override
     public GatewayFilter apply(Config config) {
         return (exchange, chain) -> {
+            var url = securityHost + "/api/v1/validate";
             ServerHttpRequest request = exchange.getRequest();
             String bearerToken = request.getHeaders().getFirst(AUTH_HEADER);
                 return webClientBuilder.build().get()
-                        .uri("http://localhost:9091/api/v1/validate")
+                        .uri(url)
                         .header(AUTH_HEADER, bearerToken)
                         .retrieve().bodyToMono(Boolean.class)
                         .map(response -> exchange).flatMap(chain::filter).onErrorResume(error -> {

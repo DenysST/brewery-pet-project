@@ -96,6 +96,19 @@ services:
       DATABASE_HOST: mysql
     restart: on-failure
 
+  security:
+    build: security
+    ports:
+      - "9091:9091"
+    depends_on:
+      - eureka
+    environment:
+      SPRING_PROFILES_ACTIVE: localmysql
+      eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
+      eureka.instance.prefer-ip-address: true
+      DATABASE_HOST: mysql
+    restart: on-failure
+
   api-gateway:
     build: gateway
     ports:
@@ -104,6 +117,7 @@ services:
       - eureka
       - config-server
       - mysql
+      - security
       - beer-service
       - order-service
       - inventory-service
@@ -111,6 +125,7 @@ services:
       eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka
       eureka.instance.prefer-ip-address: true
       SPRING_PROFILES_ACTIVE: local-discovery
+      security.host: http://security:9091
     restart: on-failure
 
 volumes:

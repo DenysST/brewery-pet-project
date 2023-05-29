@@ -21,3 +21,6 @@ server:
 logging:
   level:
     org.springframework.cloud.gateway: debug
+
+security:
+  host: "http://localhost:9091"

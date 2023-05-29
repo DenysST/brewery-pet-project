@@ -9,5 +9,4 @@ public class BeerInventoryApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }
