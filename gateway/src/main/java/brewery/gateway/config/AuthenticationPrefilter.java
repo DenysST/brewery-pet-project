@@ -31,10 +31,7 @@ public class AuthenticationPrefilter extends AbstractGatewayFilterFactory<Authen
                         .uri("http://localhost:9091/api/v1/validate")
                         .header(AUTH_HEADER, bearerToken)
                         .retrieve().bodyToMono(Boolean.class)
-                        .map(response -> {
-                            log.info("validation status: " + response);
-                            return exchange;
-                        }).flatMap(chain::filter).onErrorResume(error -> {
+                        .map(response -> exchange).flatMap(chain::filter).onErrorResume(error -> {
                             if (error.getMessage().contains("403")) {
                                 exchange.getResponse().setStatusCode(HttpStatus.FORBIDDEN);
                             } else {
