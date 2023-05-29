@@ -32,20 +32,20 @@ public class BeerLoader {
 
     private void loadBeerObjects(BeerRepository repository) {
         Beer b1 = Beer.builder()
-                .beerName("Mango Bobs")
-                .beerStyle(BeerStyleEnum.IPA.name())
+                .beerName("Heineken")
+                .beerStyle(BeerStyleEnum.LAGER.name())
                 .minOnHand(12)
                 .quantityToBrew(200)
-                .price(new BigDecimal("12.95"))
+                .price(new BigDecimal("3.99"))
                 .upc(BEER_1_UPC)
                 .build();
 
         Beer b2 = Beer.builder()
-                .beerName("Galaxy Cat")
-                .beerStyle(BeerStyleEnum.PALE_ALE.name())
+                .beerName("Budweiser")
+                .beerStyle(BeerStyleEnum.LAGER.name())
                 .minOnHand(12)
                 .quantityToBrew(200)
-                .price(new BigDecimal("12.95"))
+                .price(new BigDecimal("3.95"))
                 .upc(BEER_2_UPC)
                 .build();
 
@@ -54,12 +54,58 @@ public class BeerLoader {
                 .beerStyle(BeerStyleEnum.PALE_ALE.name())
                 .minOnHand(12)
                 .quantityToBrew(200)
-                .price(new BigDecimal("12.95"))
+                .price(new BigDecimal("5.99"))
                 .upc(BEER_3_UPC)
+                .build();
+
+        Beer b4 = Beer.builder()
+                .beerName("Guinness")
+                .beerStyle(BeerStyleEnum.STOUT.name())
+                .minOnHand(12)
+                .quantityToBrew(200)
+                .price(new BigDecimal("6.99"))
+                .upc("0083783375214")
+                .build();
+        Beer b5 = Beer.builder()
+                .beerName("Corona")
+                .beerStyle(BeerStyleEnum.LAGER.name())
+                .minOnHand(12)
+                .quantityToBrew(200)
+                .price(new BigDecimal("4.50"))
+                .upc("0083783375215")
+                .build();
+        Beer b6 = Beer.builder()
+                .beerName("Carlsberg")
+                .beerStyle(BeerStyleEnum.LAGER.name())
+                .minOnHand(12)
+                .quantityToBrew(200)
+                .price(new BigDecimal("3.99"))
+                .upc("0083783375216")
+                .build();
+        Beer b7 = Beer.builder()
+                .beerName("Lvivske Rizdviane")
+                .beerStyle(BeerStyleEnum.STOUT.name())
+                .minOnHand(12)
+                .quantityToBrew(200)
+                .price(new BigDecimal("2.99"))
+                .upc("00837833752137")
+                .build();
+        Beer b8 = Beer.builder()
+                .beerName("Chernihivske")
+                .beerStyle(BeerStyleEnum.LAGER.name())
+                .minOnHand(12)
+                .quantityToBrew(200)
+                .price(new BigDecimal("2.99"))
+                .upc("0083783375218")
                 .build();
         repository.save(b1);
         repository.save(b2);
         repository.save(b3);
+        repository.save(b4);
+        repository.save(b5);
+        repository.save(b6);
+        repository.save(b7);
+        repository.save(b8);
 
     }
 }
